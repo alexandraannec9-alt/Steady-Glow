@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steady Glow Esthetics by Alex Cunningham</title>
+  <meta name="description" content="A modern skincare studio in Paso Robles dedicated to clear, healthy, radiant skin. Personalized facials, acne treatments, and expert guidance by licensed esthetician Alex Cunningham." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sage: #8FA882;
+      --sage-light: #C8D9C2;
+      --sage-pale: #EEF4EC;
+      --ocean: #6B9BAB;
+      --ocean-light: #B8D4DC;
+      --ocean-pale: #EAF3F7;
+      --sand: #D4C4A8;
+      --sand-light: #EDE5D4;
+      --sand-pale: #FAF7F2;
+      --dark: #2A2D25;
+      --mid: #5C6055;
+      --muted: #8A8F82;
+      --cream: #FDFCF9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 0.5px solid rgba(143, 168, 130, 0.3);
+      position: sticky;
+      top: 0;
+      background: rgba(253, 252, 249, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .sg-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .sg-logo span { color: var(--sage); }
+
+    .sg-nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .sg-nav-links a {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .sg-nav-links a:hover { color: var(--sage); }
+
+    .sg-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      border: 0.5px solid var(--sage);
+      background: transparent;
+      color: var(--sage);
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .sg-btn:hover { background: var(--sage); color: white; }
+    .sg-btn-filled { background: var(--sage); color: white; }
+    .sg-btn-filled:hover { background: #7a9870; border-color: #7a9870; }
+
+    /* HERO */
+    .sg-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      overflow: hidden;
+    }
+
+    .sg-hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 3rem;
+    }
+
+    .sg-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sg-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 0.5px;
+      background: var(--sage);
+    }
+
+    .sg-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 4.5vw, 62px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+    .sg-hero-title em { font-style: italic; color: var(--sage); }
+
+    .sg-hero-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    .sg-hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .sg-hero-right { position: relative; overflow: hidden; }
+
+    .sg-hero-visual {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      position: relative;
+      background: var(--sage-pale);
+    }
+
+    .sg-circle-lg {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: var(--ocean-pale);
+      top: -80px; right: -80px;
+      opacity: 0.8;
+    }
+    .sg-circle-md {
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: var(--sand-light);
+      bottom: 80px; left: -40px;
+      opacity: 0.6;
+    }
+
+    .sg-hero-card {
+      position: absolute;
+      background: white;
+      border: 0.5px solid rgba(143, 168, 130, 0.4);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      z-index: 3;
+      box-shadow: 0 8px 32px rgba(143, 168, 130, 0.15);
+    }
+    .sg-hero-card-1 { bottom: 100px; right: 40px; width: 220px; }
+    .sg-hero-card-2 { top: 80px; left: 30px; width: 185px; }
+
+    .sg-card-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .sg-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .sg-card-sub { font-size: 11px; color: var(--sage); margin-top: 4px; }
+    .sg-dot-row { display: flex; gap: 6px; margin-top: 10px; }
+    .sg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage-light); }
+    .sg-dot.active { background: var(--sage); }
+
+    /* TICKER */
+    .sg-ticker {
+      background: var(--dark);
+      color: var(--sage-light);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .sg-ticker-inner {
+      display: inline-flex;
+      gap: 3rem;
+      animation: ticker 22s linear infinite;
+    }
+    .sg-ticker-item {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sg-ticker-sep { color: var(--sage); opacity: 0.5; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTIONS */
+    .sg-section { padding: 6rem 3rem; }
+
+    .sg-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .sg-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .sg-section-title em { font-style: italic; color: var(--sage); }
+    .sg-section-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 280px;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .sg-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(143, 168, 130, 0.2);
+      border: 0.5px solid rgba(143, 168, 130, 0.2);
+    }
+    .sg-service-card {
+      background: var(--cream);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .sg-service-card:hover { background: var(--sage-pale); }
+    .sg-service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: rgba(143, 168, 130, 0.15);
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      line-height: 1;
+    }
+    .sg-service-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; opacity: 0.7; }
+    .sg-service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+    .sg-service-desc { font-size: 13px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+    .sg-service-tag {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      border-bottom: 0.5px solid var(--sage-light);
+      padding-bottom: 2px;
+    }
+
+    /* PHILOSOPHY */
+    .sg-philosophy {
+      background: var(--dark);
+      padding: 6rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sg-philosophy::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(143, 168, 130, 0.06);
+      top: -200px; right: -200px;
+    }
+    .sg-phil-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sg-phil-left .sg-eyebrow { color: var(--sage-light); }
+    .sg-phil-left .sg-eyebrow::before { background: var(--sage-light); }
+    .sg-phil-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 300;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .sg-phil-title em { font-style: italic; color: var(--sage-light); }
+    .sg-phil-body {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+    .sg-phil-right { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sg-pillar {
+      border-left: 0.5px solid rgba(143, 168, 130, 0.3);
+      padding-left: 1.5rem;
+    }
+    .sg-pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--sage-light);
+      margin-bottom: 0.4rem;
+    }
+    .sg-pillar-body { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; }
+
+    /* ABOUT */
+    .sg-about {
+      background: var(--sand-pale);
+      padding: 6rem 3rem;
+    }
+    .sg-about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .sg-about-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sg-about-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 0.5px;
+      background: var(--sage);
+    }
+    .sg-about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .sg-about-title em { font-style: italic; color: var(--sage); }
+    .sg-about-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .sg-about-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--sage-pale);
+      border: 0.5px solid var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--sage);
+      margin-bottom: 2rem;
+    }
+    .sg-about-body {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .sg-about-body p { margin-bottom: 1.25rem; }
+    .sg-about-creds {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .sg-cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 1rem 1.25rem;
+      background: white;
+      border: 0.5px solid rgba(143, 168, 130, 0.3);
+      border-radius: 8px;
+    }
+    .sg-cred-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .sg-cred-text { font-size: 13px; color: var(--mid); line-height: 1.5; }
+    .sg-cred-text strong { color: var(--dark); font-weight: 500; display: block; font-size: 14px; margin-bottom: 2px; }
+
+    /* PROCESS */
+    .sg-process { padding: 6rem 3rem; }
+    .sg-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    .sg-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%; right: 12.5%;
+      height: 0.5px;
+      background: var(--sage-light);
+    }
+    .sg-step { padding: 0 1.5rem; text-align: center; position: relative; z-index: 1; }
+    .sg-step-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 0.5px solid var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--sage);
+    }
+    .sg-step-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .sg-step-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* TESTIMONIAL */
+    .sg-testimonial {
+      background: var(--sage-pale);
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    .sg-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      line-height: 0.5;
+      color: var(--sage-light);
+      display: block;
+      margin-bottom: 2rem;
+    }
+    .sg-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+    }
+    .sg-quote-author { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .sg-quote-author span { color: var(--sage); }
+
+    /* CTA */
+    .sg-cta-banner {
+      background: var(--dark);
+      padding: 5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sg-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: white;
+      line-height: 1.2;
+    }
+    .sg-cta-text em { font-style: italic; color: var(--sage-light); }
+    .sg-cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
+    .sg-cta-note { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid rgba(143, 168, 130, 0.2);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .sg-footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+    }
+    .sg-footer-logo span { color: var(--sage); }
+    .sg-footer-links { display: flex; gap: 2rem; list-style: none; }
+    .sg-footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .sg-footer-links a:hover { color: var(--sage); }
+    .sg-footer-copy { font-size: 11px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .sg-nav-links { display: none; }
+      .sg-hero { grid-template-columns: 1fr; }
+      .sg-hero-right { display: none; }
+      .sg-hero-left { padding: 4rem 1.5rem; }
+      .sg-section { padding: 4rem 1.5rem; }
+      .sg-section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .sg-section-desc { text-align: left; max-width: 100%; }
+      .sg-services-grid { grid-template-columns: 1fr; }
+      .sg-phil-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .sg-about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .sg-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .sg-steps::before { display: none; }
+      .sg-cta-banner { flex-direction: column; gap: 2rem; text-align: center; padding: 4rem 1.5rem; }
+      .sg-cta-right { align-items: center; }
+      .sg-philosophy { padding: 4rem 1.5rem; }
+      .sg-about { padding: 4rem 1.5rem; }
+      .sg-process { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="sg-logo">Steady <span>Glow</span> Esthetics</a>
+    <ul class="sg-nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="sg-btn sg-btn-filled">Book a consultation</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="sg-hero">
+    <div class="sg-hero-left">
+      <p class="sg-eyebrow">Licensed Esthetician &amp; Face Reality Acne Specialist · San Luis Obispo, CA</p>
+      <h1 class="sg-hero-title">
+        A steady path to<br>
+        <em>lasting glow</em><br>
+        &amp; clear skin
+      </h1>
+      <p class="sg-hero-body">
+        Personalized treatments, clinical skincare, and expert guidance — built around your skin's long-term health, not quick fixes.
+      </p>
+      <div class="sg-hero-ctas">
+        <a href="#services" class="sg-btn sg-btn-filled">Explore services</a>
+        <a href="#process" class="sg-btn">What to expect</a>
+      </div>
+    </div>
+
+    <div class="sg-hero-right">
+      <div class="sg-hero-visual">
+        <div class="sg-circle-lg"></div>
+        <div class="sg-circle-md"></div>
+
+        <div class="sg-hero-card sg-hero-card-2">
+          <div class="sg-card-label">Your skin journey</div>
+          <div class="sg-card-value">Session 3</div>
+          <div class="sg-card-sub">Barrier repair phase</div>
+          <div class="sg-dot-row">
+            <div class="sg-dot active"></div>
+            <div class="sg-dot active"></div>
+            <div class="sg-dot active"></div>
+            <div class="sg-dot"></div>
+            <div class="sg-dot"></div>
+          </div>
+        </div>
+
+        <div class="sg-hero-card sg-hero-card-1">
+          <div class="sg-card-label">Recommended next step</div>
+          <div class="sg-card-value" style="font-size:17px;">Corrective Facial</div>
+          <div class="sg-card-sub">+ Enzyme treatment</div>
+          <div style="margin-top:12px;font-size:11px;color:var(--muted);">Curated by Alex for your skin goals</div>
+        </div>
+
+        <svg viewBox="0 0 200 300" style="position:absolute;bottom:0;right:60px;width:180px;opacity:0.18;" fill="none">
+          <path d="M100 300 Q100 200 60 150 Q30 110 50 70 Q70 30 100 20" stroke="#8FA882" stroke-width="1.5"/>
+          <path d="M100 200 Q140 170 160 140 Q180 110 170 80" stroke="#8FA882" stroke-width="1"/>
+          <path d="M100 240 Q65 220 50 200 Q35 180 45 160" stroke="#8FA882" stroke-width="1"/>
+          <ellipse cx="60" cy="140" rx="18" ry="12" fill="#8FA882" transform="rotate(-20 60 140)" opacity="0.5"/>
+          <ellipse cx="165" cy="100" rx="14" ry="10" fill="#8FA882" transform="rotate(30 165 100)" opacity="0.4"/>
+          <ellipse cx="46" cy="180" rx="12" ry="8" fill="#8FA882" transform="rotate(-35 46 180)" opacity="0.4"/>
+          <ellipse cx="100" cy="20" rx="10" ry="16" fill="#8FA882" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="sg-ticker">
+    <div class="sg-ticker-inner">
+      <span class="sg-ticker-item">Acne Treatments <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Barrier Repair <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Anti-Aging Facials <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Corrective Skincare <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Client Education <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Clinical Ingredients <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Face Reality Certified <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">San Luis Obispo CA <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Acne Treatments <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Barrier Repair <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Anti-Aging Facials <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Corrective Skincare <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Client Education <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Clinical Ingredients <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">Face Reality Certified <span class="sg-ticker-sep">·</span></span>
+      <span class="sg-ticker-item">San Luis Obispo CA <span class="sg-ticker-sep">·</span></span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="sg-section" id="services">
+    <div class="sg-section-header">
+      <h2 class="sg-section-title">Treatments built<br>for <em>real results</em></h2>
+      <p class="sg-section-desc">Every service is tailored to your skin's unique needs — not a one-size menu.</p>
+    </div>
+
+    <div class="sg-services-grid">
+      <div class="sg-service-card">
+        <div class="sg-service-num">01</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="16" stroke="#8FA882" stroke-width="0.75"/>
+          <path d="M12 20 Q16 14 20 20 Q24 26 28 20" stroke="#8FA882" stroke-width="1"/>
+          <circle cx="20" cy="20" r="3" fill="#8FA882" opacity="0.5"/>
+        </svg>
+        <div class="sg-service-name">Customized Facials</div>
+        <div class="sg-service-desc">Tailored to your skin type and goals — whether that's hydration, brightening, or deep cleansing. Never generic.</div>
+        <div class="sg-service-tag">All skin types</div>
+      </div>
+      <div class="sg-service-card">
+        <div class="sg-service-num">02</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <path d="M20 8 Q28 14 28 22 Q28 32 20 34 Q12 32 12 22 Q12 14 20 8Z" stroke="#8FA882" stroke-width="0.75"/>
+          <path d="M20 14 Q24 18 24 22 Q24 28 20 30 Q16 28 16 22 Q16 18 20 14Z" fill="#8FA882" opacity="0.2"/>
+        </svg>
+        <div class="sg-service-name">Acne Treatments</div>
+        <div class="sg-service-desc">Corrective protocols designed to calm inflammation, clear congestion, and rebuild confidence — progressively and sustainably.</div>
+        <div class="sg-service-tag">Face Reality certified</div>
+      </div>
+      <div class="sg-service-card">
+        <div class="sg-service-num">03</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <rect x="8" y="14" width="24" height="16" rx="3" stroke="#8FA882" stroke-width="0.75"/>
+          <path d="M14 14 Q14 8 20 8 Q26 8 26 14" stroke="#8FA882" stroke-width="0.75"/>
+          <circle cx="20" cy="22" r="3" fill="#8FA882" opacity="0.5"/>
+        </svg>
+        <div class="sg-service-name">Barrier Repair</div>
+        <div class="sg-service-desc">Restore your skin's protective layer with targeted treatments and clinical ingredients that rebuild from within.</div>
+        <div class="sg-service-tag">Restorative focus</div>
+      </div>
+      <div class="sg-service-card">
+        <div class="sg-service-num">04</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <path d="M10 28 Q15 10 20 12 Q25 14 30 8" stroke="#8FA882" stroke-width="1"/>
+          <circle cx="30" cy="8" r="3" fill="#8FA882" opacity="0.5"/>
+          <path d="M10 32 Q20 26 30 32" stroke="#8FA882" stroke-width="0.5" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="sg-service-name">Anti-Aging</div>
+        <div class="sg-service-desc">Progressive treatments using clinical actives that work with your skin's natural renewal process over time.</div>
+        <div class="sg-service-tag">Long-term protocol</div>
+      </div>
+      <div class="sg-service-card">
+        <div class="sg-service-num">05</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="14" stroke="#8FA882" stroke-width="0.75" stroke-dasharray="3 2"/>
+          <path d="M15 20 L18 23 L25 17" stroke="#8FA882" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <div class="sg-service-name">Skin Consultations</div>
+        <div class="sg-service-desc">Deep-dive skin analysis with Alex — understanding your skin from the inside out and building your personalized care plan.</div>
+        <div class="sg-service-tag">New client start</div>
+      </div>
+      <div class="sg-service-card">
+        <div class="sg-service-num">06</div>
+        <svg class="sg-service-icon" viewBox="0 0 40 40" fill="none">
+          <path d="M12 32 L12 20 L20 14 L28 20 L28 32" stroke="#8FA882" stroke-width="0.75"/>
+          <rect x="17" y="24" width="6" height="8" stroke="#8FA882" stroke-width="0.75"/>
+          <path d="M8 20 L20 10 L32 20" stroke="#8FA882" stroke-width="0.75"/>
+        </svg>
+        <div class="sg-service-name">Product Education</div>
+        <div class="sg-service-desc">Curated recommendations and a home-care routine you'll actually understand and follow — because results don't stop at the studio.</div>
+        <div class="sg-service-tag">Every visit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="sg-philosophy">
+    <div class="sg-phil-inner">
+      <div class="sg-phil-left">
+        <p class="sg-eyebrow">The Steady Glow approach</p>
+        <h2 class="sg-phil-title">Beautiful skin is<br><em>built</em>, not bought</h2>
+        <p class="sg-phil-body">
+          Steady Glow was founded on a simple belief: lasting skin health comes from consistency, education, and patience — not shortcuts. Alex works as a true partner in your skin journey, blending corrective skincare with a calm, clinical experience.
+        </p>
+        <a href="#about" class="sg-btn" style="border-color:rgba(200,217,194,0.4);color:var(--sage-light);">Meet Alex</a>
+      </div>
+      <div class="sg-phil-right">
+        <div class="sg-pillar">
+          <div class="sg-pillar-title">Consistency over quick fixes</div>
+          <div class="sg-pillar-body">Real skin change is gradual. Every treatment builds on the last, creating cumulative progress that lasts.</div>
+        </div>
+        <div class="sg-pillar">
+          <div class="sg-pillar-title">Education as treatment</div>
+          <div class="sg-pillar-body">You leave every appointment knowing more about your skin — empowered to make better choices every day.</div>
+        </div>
+        <div class="sg-pillar">
+          <div class="sg-pillar-title">Clinical meets calm</div>
+          <div class="sg-pillar-body">Results-driven ingredients in a serene, unhurried environment. Science and sanctuary, together.</div>
+        </div>
+        <div class="sg-pillar">
+          <div class="sg-pillar-title">A partnership, not a service</div>
+          <div class="sg-pillar-body">Alex gets to know your skin over time — adjusting, progressing, and celebrating every milestone with you.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sg-about" id="about">
+    <div class="sg-about-inner">
+      <div>
+        <p class="sg-about-label">About Alex</p>
+        <h2 class="sg-about-title">Central Coast<br><em>roots.</em> Clinical<br>results.</h2>
+        <p class="sg-about-subtitle">Licensed Esthetician · San Luis Obispo, CA</p>
+        <div class="sg-about-avatar">AC</div>
+        <div class="sg-about-creds">
+          <div class="sg-cred">
+            <div class="sg-cred-dot"></div>
+            <div class="sg-cred-text">
+              <strong>Licensed Esthetician</strong>
+              Design School of Cosmetology, Paso Robles
+            </div>
+          </div>
+          <div class="sg-cred">
+            <div class="sg-cred-dot"></div>
+            <div class="sg-cred-text">
+              <strong>Face Reality Acne Specialist</strong>
+              Certified in advanced acne treatment protocols
+            </div>
+          </div>
+          <div class="sg-cred">
+            <div class="sg-cred-dot"></div>
+            <div class="sg-cred-text">
+              <strong>Central Coast Native</strong>
+              Raised here, trained here, rooted here
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-about-body">
+        <p>
+          Alex Cunningham is a Central Coast native — raised by the rhythm of the ocean, shaped by the mountains of Tahoe, and now rooted back home in San Luis Obispo where her passion for skin officially became her life's work.
+        </p>
+        <p>
+          After graduating from the Design School of Cosmetology, Alex earned her esthetician license and went on to become a certified Face Reality Acne Specialist — one of the most respected acne training programs in the industry.
+        </p>
+        <p>
+          But the path to skincare wasn't just professional. It was personal.
+        </p>
+        <p>
+          Like so many of her clients, Alex struggled with acne as a teenager. She knows firsthand how a breakout isn't just a skin issue — it's a confidence issue. It changes how you show up in a room, how you look in photos, how you feel walking out the door in the morning. That lived experience is what drives everything at Steady Glow.
+        </p>
+        <p>
+          When Alex works with a client on acne, she's not just treating skin. She's treating the whole person behind it.
+        </p>
+        <p>
+          Steady Glow Esthetics exists because Alex wanted to create the resource she wished she'd had — a knowledgeable, caring partner who could cut through the noise, explain what's actually happening in your skin, and build a real plan toward lasting clarity.
+        </p>
+        <a href="#contact" class="sg-btn sg-btn-filled" style="margin-top:1.5rem;">Book with Alex</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sg-process" id="process">
+    <div class="sg-section-header">
+      <h2 class="sg-section-title">Your <em>glow journey</em><br>in four steps</h2>
+      <p class="sg-section-desc">A clear, supportive path from first visit to lasting results.</p>
+    </div>
+    <div class="sg-steps">
+      <div class="sg-step">
+        <div class="sg-step-dot">I</div>
+        <div class="sg-step-name">Skin Analysis</div>
+        <div class="sg-step-desc">A thorough consultation to understand your history, goals, and what your skin truly needs.</div>
+      </div>
+      <div class="sg-step">
+        <div class="sg-step-dot">II</div>
+        <div class="sg-step-name">Custom Plan</div>
+        <div class="sg-step-desc">Alex designs a treatment series and home-care routine built specifically for your skin.</div>
+      </div>
+      <div class="sg-step">
+        <div class="sg-step-dot">III</div>
+        <div class="sg-step-name">Progressive Care</div>
+        <div class="sg-step-desc">Each session builds on the last — adjusting and advancing as your skin responds and improves.</div>
+      </div>
+      <div class="sg-step">
+        <div class="sg-step-dot">IV</div>
+        <div class="sg-step-name">Lasting Glow</div>
+        <div class="sg-step-desc">Healthy, confident skin — maintained through ongoing support and a ritual you own.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="sg-testimonial">
+    <span class="sg-quote-mark">"</span>
+    <p class="sg-quote-text">Alex doesn't just give you a facial — she teaches you your own skin. I finally understand what's happening and why, and my skin has never looked better.</p>
+    <p class="sg-quote-author">— <span>Sarah M.</span> · Glow Seeker since 2023</p>
+  </section>
+
+  <!-- CTA -->
+  <div class="sg-cta-banner" id="contact">
+    <h2 class="sg-cta-text">Ready to start your<br><em>steady glow</em> journey?</h2>
+    <div class="sg-cta-right">
+      <p class="sg-cta-note">New clients welcome · San Luis Obispo, CA</p>
+      <a href="/cdn-cgi/l/email-protection#29414c454546695a5d4c484d504e45465e4c5a5d414c5d404a5a074a4644" class="sg-btn sg-btn-filled" style="font-size:13px;padding:1rem 2.5rem;">Book your consultation</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="sg-footer-logo">Steady <span>Glow</span> Esthetics</div>
+    <ul class="sg-footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#about">About Alex</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Book Now</a></li>
+    </ul>
+    <p class="sg-footer-copy">© 2025 Steady Glow Esthetics by Alex Cunningham · S

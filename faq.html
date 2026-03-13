@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Steady Glow Esthetics</title>
+  <meta name="description" content="Answers to common questions about facials, acne treatments, Face Reality products, and booking at Steady Glow Esthetics in San Luis Obispo, CA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sage: #8FA882;
+      --sage-light: #C8D9C2;
+      --sage-pale: #EEF4EC;
+      --ocean: #6B9BAB;
+      --ocean-light: #B8D4DC;
+      --ocean-pale: #EAF3F7;
+      --sand: #D4C4A8;
+      --sand-light: #EDE5D4;
+      --sand-pale: #FAF7F2;
+      --dark: #2A2D25;
+      --mid: #5C6055;
+      --muted: #8A8F82;
+      --cream: #FDFCF9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 0.5px solid rgba(143, 168, 130, 0.3);
+      position: sticky;
+      top: 0;
+      background: rgba(253, 252, 249, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .sg-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .sg-logo span { color: var(--sage); }
+    .sg-nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .sg-nav-links a {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .sg-nav-links a:hover { color: var(--sage); }
+    .sg-nav-links a.active { color: var(--sage); }
+
+    .sg-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      border: 0.5px solid var(--sage);
+      background: transparent;
+      color: var(--sage);
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .sg-btn:hover { background: var(--sage); color: white; }
+    .sg-btn-filled { background: var(--sage); color: white; }
+    .sg-btn-filled:hover { background: #7a9870; border-color: #7a9870; }
+
+    /* PAGE HEADER */
+    .sg-page-header {
+      padding: 5rem 3rem 4rem;
+      border-bottom: 0.5px solid rgba(143, 168, 130, 0.2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+    .sg-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sg-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 0.5px;
+      background: var(--sage);
+    }
+    .sg-page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+    }
+    .sg-page-title em { font-style: italic; color: var(--sage); }
+    .sg-page-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 400px;
+    }
+    .sg-page-subtitle a {
+      color: var(--sage);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--sage-light);
+    }
+    .sg-page-subtitle a:hover { border-bottom-color: var(--sage); }
+
+    /* FAQ LAYOUT */
+    .sg-faq-wrap {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 5rem;
+      padding: 5rem 3rem 7rem;
+      align-items: start;
+    }
+
+    /* STICKY SIDEBAR */
+    .sg-faq-sidebar {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sg-sidebar-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-left: 1.25rem;
+    }
+    .sg-sidebar-link {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0.65rem 0 0.65rem 1.25rem;
+      border-left: 0.5px solid rgba(143, 168, 130, 0.2);
+      text-decoration: none;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+    .sg-sidebar-link:hover,
+    .sg-sidebar-link.active {
+      color: var(--sage);
+      border-left-color: var(--sage);
+    }
+
+    /* FAQ CONTENT */
+    .sg-faq-content {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    .sg-faq-group { display: flex; flex-direction: column; gap: 0; }
+
+    .sg-group-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sg-group-title::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(143, 168, 130, 0.25);
+    }
+
+    /* ACCORDION */
+    .sg-faq-item {
+      border-bottom: 0.5px solid rgba(143, 168, 130, 0.15);
+    }
+
+    .sg-faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .sg-faq-question::-webkit-details-marker { display: none; }
+
+    .sg-faq-q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .sg-faq-item[open] .sg-faq-q-text { color: var(--sage); }
+
+    .sg-faq-icon {
+      width: 28px; height: 28px;
+      border: 0.5px solid var(--sage-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.25s;
+      position: relative;
+    }
+    .sg-faq-icon::before,
+    .sg-faq-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--sage);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .sg-faq-icon::before { width: 10px; height: 0.5px; }
+    .sg-faq-icon::after { width: 0.5px; height: 10px; }
+
+    .sg-faq-item[open] .sg-faq-icon {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+    .sg-faq-item[open] .sg-faq-icon::before,
+    .sg-faq-item[open] .sg-faq-icon::after { background: white; }
+    .sg-faq-item[open] .sg-faq-icon::after { transform: rotate(90deg); opacity: 0; }
+
+    .sg-faq-answer {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.9;
+      font-weight: 300;
+      padding: 0 3rem 1.75rem 0;
+      max-width: 640px;
+    }
+    .sg-faq-answer p { margin-bottom: 0.9rem; }
+    .sg-faq-answer p:last-child { margin-bottom: 0; }
+    .sg-faq-answer strong { color: var(--dark); font-weight: 500; }
+
+    .sg-faq-answer-note {
+      margin-top: 1rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--sage-pale);
+      border-left: 2px solid var(--sage-light);
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* STILL HAVE QUESTIONS */
+    .sg-still-questions {
+      background: var(--dark);
+      padding: 5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sg-sq-left {}
+    .sg-sq-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sg-sq-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 0.5px;
+      background: var(--sage-light);
+    }
+    .sg-sq-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: white;
+      line-height: 1.2;
+    }
+    .sg-sq-title em { font-style: italic; color: var(--sage-light); }
+    .sg-sq-body {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.75rem;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+    .sg-sq-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+    .sg-sq-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 0.5px solid var(--sage-light);
+      background: transparent;
+      color: var(--sage-light);
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+    .sg-sq-btn:hover { background: var(--sage); border-color: var(--sage); color: white; }
+    .sg-sq-btn-filled {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: white;
+    }
+    .sg-sq-btn-filled:hover { background: #7a9870; border-color: #7a9870; }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid rgba(143, 168, 130, 0.2);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .sg-footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--dark); }
+    .sg-footer-logo span { color: var(--sage); }
+    .sg-footer-links { display: flex; gap: 2rem; list-style: none; }
+    .sg-footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .sg-footer-links a:hover { color: var(--sage); }
+    .sg-footer-copy { font-size: 11px; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .sg-nav-links { display: none; }
+      .sg-page-header { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.5rem 2.5rem; }
+      .sg-faq-wrap { grid-template-columns: 1fr; gap: 0; padding: 3rem 1.5rem 5rem; }
+      .sg-faq-sidebar { display: none; }
+      .sg-still-questions { flex-direction: column; gap: 2.5rem; padding: 4rem 1.5rem; }
+      .sg-sq-right { align-items: flex-start; }
+      .sg-faq-answer { padding-right: 0; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="sg-logo">Steady <span>Glow</span> Esthetics</a>
+    <ul class="sg-nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="https://alexandracunningham.glossgenius.com" target="_blank" rel="noopener" class="sg-btn sg-btn-filled">Book a consultation</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="sg-page-header">
+    <div>
+      <p class="sg-eyebrow">Questions & answers</p>
+      <h1 class="sg-page-title">Everything you<br>want to <em>know</em></h1>
+    </div>
+    <p class="sg-page-subtitle">
+      Can't find what you're looking for? Book a free consultation and ask Alex directly — or reach out via your
+      <a href="https://alexandracunningham.glossgenius.com" target="_blank" rel="noopener">Glossgenius booking page</a>.
+    </p>
+  </div>
+
+  <!-- FAQ BODY -->
+  <div class="sg-faq-wrap">
+
+    <!-- SIDEBAR -->
+    <nav class="sg-faq-sidebar" aria-label="FAQ categories">
+      <div class="sg-sidebar-label">Jump to</div>
+      <a href="#first-visit" class="sg-sidebar-link active">Your first visit</a>
+      <a href="#acne" class="sg-sidebar-link">Acne & Face Reality</a>
+      <a href="#results" class="sg-sidebar-link">Results & timelines</a>
+      <a href="#booking" class="sg-sidebar-link">Booking & policies</a>
+    </nav>
+
+    <!-- FAQ CONTENT -->
+    <div class="sg-faq-content">
+
+      <!-- YOUR FIRST VISIT -->
+      <div class="sg-faq-group" id="first-visit">
+        <div class="sg-group-title">Your first visit</div>
+
+        <details class="sg-faq-item" open>
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">What happens at my first appointment?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Your first visit starts with a skin consultation — Alex will take time to learn about your skin history, current routine, concerns, and goals before touching your face. This isn't a quick intake form; it's a real conversation.</p>
+            <p>From there, Alex will assess your skin and either begin a treatment that day or recommend the best starting point based on what she finds. You'll leave with a clear understanding of your skin type, what's going on beneath the surface, and a plan for where to go next.</p>
+            <div class="sg-faq-answer-note">New clients are encouraged to book the free consultation first so Alex can get to know your skin before recommending a service.</div>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">How should I prepare for my appointment?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Come with a clean or lightly moisturized face if possible — no heavy makeup. If you're coming straight from work or your day, that's completely fine too.</p>
+            <p>Let Alex know about any new products you've started recently, any medications you're taking (especially retinoids or prescription acne treatments), and any recent skin reactions. The more she knows going in, the more she can tailor the treatment.</p>
+            <p><strong>Avoid the following in the 48 hours before your appointment:</strong> exfoliating scrubs, retinol or retinoids, chemical exfoliants (AHAs/BHAs), waxing or threading on the face, and any spray tans.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">What should I avoid after a facial?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>For the first 24–48 hours after your facial, give your skin time to settle. Avoid direct sun exposure and wear SPF if you're heading outside. Skip active ingredients like retinol, exfoliating acids, and vitamin C serums for at least 24 hours.</p>
+            <p>Avoid heavy workouts, steam rooms, or anything that causes a lot of sweating right after your appointment — your skin is more receptive than usual and you want to keep it calm.</p>
+            <p>Alex will give you specific post-care guidance based on the treatment you received, so if you're ever unsure just follow her recommendations over general advice.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">I have sensitive skin — is that okay?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Absolutely. Sensitive and reactive skin is something Alex works with regularly — the Barrier Repair Facial is specifically designed for skin that needs a gentler, restorative approach.</p>
+            <p>Just let Alex know about your sensitivities when you book and during your consultation. She'll adjust every step of the treatment accordingly and avoid anything that could trigger a reaction.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- ACNE & FACE REALITY -->
+      <div class="sg-faq-group" id="acne">
+        <div class="sg-group-title">Acne & Face Reality</div>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Why do I have to use Face Reality products?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>The Face Reality protocol works because what happens at home is just as important as what happens in the treatment room. The products Alex uses during your facial are formulated to work together with your home routine — using other products in between sessions can slow your progress or trigger breakouts that make it harder to track what's working.</p>
+            <p>Think of it like a prescription — the treatment only works as intended when all the pieces are followed. Alex will explain every product she recommends, what it does, and why it's in your routine. Nothing goes in your bag without a reason.</p>
+            <div class="sg-faq-answer-note"><strong>The product requirement applies to clients enrolled in acne boot camp.</strong> For one-off Acne-Safe Reset Facials, Alex can work with what you have and make recommendations from there.</div>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Are Face Reality products expensive?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Face Reality products are mid-range in price — comparable to what you'd spend at Sephora on skincare, but specifically chosen for acne-prone skin and formulated to work within the protocol. Most clients find they actually spend less overall once they stop buying products that don't work.</p>
+            <p>Alex will build you a routine with only what you actually need — no unnecessary steps, no products just to fill a shelf. The goal is a lean, effective routine that gets results.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">What is the Acne Boot Camp and who is it for?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>The Acne Boot Camp is a 4-session clear skin program built around the Face Reality method. It's designed for anyone dealing with persistent acne who's ready to commit to a real plan — not just a single facial.</p>
+            <p>It's a good fit if you've tried a lot of products without lasting results, if your acne comes back every time you stop treating it, or if you've never had a proper skin analysis and want to understand what's actually driving your breakouts.</p>
+            <p>Sessions are spaced 2–4 weeks apart. In between, Alex checks in to adjust your home routine as your skin responds. The Face Reality product routine is required for boot camp clients.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Can I book an acne treatment if my acne is mild?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Yes — you don't need to be dealing with severe acne to benefit from an acne-safe approach. Even mild or occasional breakouts often respond well to the Face Reality method, and catching patterns early means you can stay ahead of them.</p>
+            <p>If you're unsure whether acne treatments or a customized facial is the better starting point, book a free consultation and Alex will point you in the right direction.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- RESULTS & TIMELINES -->
+      <div class="sg-faq-group" id="results">
+        <div class="sg-group-title">Results & timelines</div>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">How many sessions until I see results?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>It depends on what you're treating. For general skin health, hydration, and glow — most clients notice a difference after their first or second session.</p>
+            <p>For acne, the honest answer is that real, lasting results take 3–6 months of consistent treatment and a supported home routine. Some clients see significant clearing within the first few sessions. Others go through an adjustment period where things look a little worse before they get better — this is normal and expected as congestion works its way to the surface.</p>
+            <p><strong>The most important thing is consistency.</strong> Skipping sessions or going off your home routine in between sets the process back. Alex tracks your progress at every visit and adjusts the plan as needed.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Will my skin get worse before it gets better?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>For some acne clients, yes — and this is actually a sign the treatment is working. When you start clearing congestion that's been sitting under the skin, it can come to the surface before it clears. This is called purging and it's a normal part of the process.</p>
+            <p>Alex will prepare you for what to expect and will monitor your skin closely throughout. If something doesn't look right or feels outside of normal, she'll adjust your routine. You're never left to figure it out alone.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">How often should I come in?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>For general skin maintenance — once a month is the sweet spot for most people. Your skin naturally turns over roughly every 28 days, so monthly facials align with that cycle and keep things consistently on track.</p>
+            <p>For acne boot camp — sessions are spaced every 2–4 weeks depending on how your skin is responding. Alex will let you know the ideal timing at each visit.</p>
+            <p>For barrier repair or sensitive skin — frequency depends on where your skin is at. Alex will recommend a cadence that makes sense for your specific situation.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- BOOKING & POLICIES -->
+      <div class="sg-faq-group" id="booking">
+        <div class="sg-group-title">Booking & policies</div>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">How do I book an appointment?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>All bookings are made through Glossgenius — you can book directly at <a href="https://alexandracunningham.glossgenius.com" target="_blank" rel="noopener" style="color:var(--sage);text-decoration:none;border-bottom:0.5px solid var(--sage-light);">alexandracunningham.glossgenius.com</a>. New clients are encouraged to start with a free consultation so Alex can recommend the right service before your first treatment.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Is a deposit required to book?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>No deposit is required — but a valid credit card on file is required to hold your appointment. Your card will not be charged unless there is a no-show or a late cancellation that falls within the 48-hour window.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">What is the cancellation policy?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Please cancel or reschedule at least <strong>48 hours before your appointment</strong>. Cancellations made within 48 hours or no-shows may be subject to a charge to the card on file.</p>
+            <p>Life happens — if something comes up, just reach out as early as possible. Alex appreciates the heads up and will always do her best to work with you.</p>
+          </div>
+        </details>
+
+        <details class="sg-faq-item">
+          <summary class="sg-faq-question">
+            <span class="sg-faq-q-text">Where is Steady Glow Esthetics located?</span>
+            <span class="sg-faq-icon"></span>
+          </summary>
+          <div class="sg-faq-answer">
+            <p>Steady Glow Esthetics is located in San Luis Obispo, CA. Exact address and parking details are provided when you book your appointment through Glossgenius.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STILL HAVE QUESTIONS -->
+  <div class="sg-still-questions">
+    <div class="sg-sq-left">
+      <p class="sg-sq-eyebrow">Still have questions?</p>
+      <h2 class="sg-sq-title">Ask Alex <em>directly</em></h2>
+      <p class="sg-sq-body">The best way to get answers specific to your skin is a free consultation. No pressure, no commitment — just a real conversation.</p>
+    </div>
+    <div class="sg-sq-right">
+      <a href="https://alexandracunningham.glossgenius.com" target="_blank" rel="noopener" class="sg-sq-btn sg-sq-btn-filled">Book a free consultation ↗</a>
+      <a href="services.html" class="sg-sq-btn">View all services</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="sg-footer-logo">Steady <span>Glow</span> Esthetics</div>
+    <ul class="sg-footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Alex</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="https://alexandracunningham.glossgenius.com" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+    <p class="sg-footer-copy">© 2025 Steady Glow Esthetics by Alex Cunningham · San Luis Obispo, CA</p>
+  </footer>
+
+</body>
+</html>
